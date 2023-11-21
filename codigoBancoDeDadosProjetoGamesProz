@@ -34,14 +34,14 @@ CREATE TABLE Jogos (
  media_avaliacao_jogos FLOAT,  
  qnt_jogos INT,  
  qnt_comentarios INT,
- idUsuario INT 
+ compraUsuario INT 
 );
 
 
 ALTER TABLE Loja_Jogos ADD FOREIGN KEY(idEndereco) REFERENCES Endereco (id_endereco);
 ALTER TABLE Usuario ADD FOREIGN KEY(idLoja) REFERENCES Loja_Jogos (id_loja);
 ALTER TABLE Endereco ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (id_usuario);
-ALTER TABLE Jogos ADD FOREIGN KEY(idUsuario) REFERENCES Usuario (id_usuario);
+ALTER TABLE Jogos ADD FOREIGN KEY(compraUsuario) REFERENCES Usuario (id_usuario);
 
 
 INSERT into Endereco (logradouro, cidade, estado, CEP) VALUES
@@ -60,9 +60,9 @@ INSERT INTO Usuario (nome_usuario, telefone_usuario, email_usuario, avaliacao_us
 INSERT into Endereco (logradouro, cidade, estado, CEP, idUsuario) VALUES
 ('Rua do Sol', 'Fortaleza', 'Ceará', 123456780, 1);
 
-INSERT INTO Jogos (disponivel_jogo, nome_jogo, idUsuario) VALUES
+INSERT INTO Jogos (disponivel_jogo, nome_jogo, compraUsuario) VALUES
 (FALSE, 'Assassins Creed Mirage', 1);
-INSERT INTO Jogos (disponivel_jogo, nome_jogo,  preco_jogo, media_avaliacao_jogos, qnt_jogos, qnt_comentarios, idUsuario) VALUES
+INSERT INTO Jogos (disponivel_jogo, nome_jogo,  preco_jogo, media_avaliacao_jogos, qnt_jogos, qnt_comentarios, compraUsuario) VALUES
 (TRUE, 'Starfield', 350.00, 5, 20, 3, 1);
 
 SELECT * FROM Loja_Jogos;
