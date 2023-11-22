@@ -69,3 +69,8 @@ SELECT * FROM Loja_Jogos;
 SELECT * FROM Usuario;
 SELECT * FROM Endereco;
 SELECT * FROM Jogos;
+
+//Consultas pelo site relaX:
+σ disponivel_jogo = 't' (Jogos)
+π nome_usuario, telefone_usuario, email_usuario (Usuario)
+π nome_jogo, preco_jogo, media_avaliacao (σ preco > 200 (Jogos))
